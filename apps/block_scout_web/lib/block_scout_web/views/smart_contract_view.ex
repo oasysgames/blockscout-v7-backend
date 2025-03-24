@@ -4,7 +4,6 @@ defmodule BlockScoutWeb.SmartContractView do
   import Explorer.SmartContract.Reader, only: [zip_tuple_values_with_types: 2]
 
   alias Explorer.Chain
-  alias Explorer.Helper, as: ExplorerHelper
   alias Explorer.Chain.{Address, Transaction}
   alias Explorer.Chain.Hash.Address, as: HashAddress
   alias Explorer.Chain.SmartContract
@@ -173,11 +172,15 @@ defmodule BlockScoutWeb.SmartContractView do
 
       _ ->
         if is_binary(item) do
-          ExplorerHelper.add_0x_prefix(item)
+          add_0x(item)
         else
           to_string(item)
         end
     end
+  end
+
+  defp add_0x(item) do
+    "0x" <> Base.encode16(item, case: :lower)
   end
 
   defp render_type_value(type, value, type) do

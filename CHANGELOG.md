@@ -2,11 +2,14 @@
 
 ## 7.0.2
 
+### 🐛 Bug Fixes
+
+- Fix logs decoding issue ([#11963](https://github.com/blockscout/blockscout/issues/11963))
+- Don't fetch revert reason for txs list ([#11935](https://github.com/blockscout/blockscout/issues/11935))
+
 ### ⚡ Performance
 
-- Logs list decoding: Accumulate ABI for unique address hashes ([#11967](https://github.com/blockscout/blockscout/pull/11967))
-- Logs list decoding: Use Sig provider microservice batched request ([#11956](https://github.com/blockscout/blockscout/issues/11956), [#11963](https://github.com/blockscout/blockscout/issues/11963))
-- Transactions list: Don't fetch revert reason for txs list ([#11935](https://github.com/blockscout/blockscout/issues/11935))
+- Use Sig provider microservice batched request ([#11956](https://github.com/blockscout/blockscout/issues/11956))
 
 ## 7.0.1
 
