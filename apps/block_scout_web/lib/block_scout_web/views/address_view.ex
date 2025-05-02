@@ -333,17 +333,6 @@ defmodule BlockScoutWeb.AddressView do
     ]
   end
 
-  defp matching_address_check(current_address, nil, contract?, truncate) do
-    [
-      view_module: __MODULE__,
-      partial: "_responsive_hash.html",
-      address: current_address,
-      contract: contract?,
-      truncate: truncate,
-      use_custom_tooltip: false
-    ]
-  end
-
   @doc """
   Get the current tab name/title from the request path and possible tab names.
 
@@ -488,7 +477,7 @@ defmodule BlockScoutWeb.AddressView do
           | {:error, atom(), list()}
           | {{:error, :contract_not_verified, list()}, any()}
   def decode(log, transaction) do
-    {result, _full_abi_per_address_hash_contracts_acc, _events_acc} = Log.decode(log, transaction, [], true, false)
+    {result, _contracts_acc, _events_acc} = Log.decode(log, transaction, [], true, false)
     result
   end
 end

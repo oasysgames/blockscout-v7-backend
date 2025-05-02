@@ -482,10 +482,6 @@ defmodule Indexer.Fetcher.TokenInstance.HelperTest do
 
       token_instance = build(:token_instance, token_contract_address_hash: erc_721_token.contract_address_hash)
 
-      stub(EthereumJSONRPC.Mox, :json_rpc, fn _json, _options ->
-        {:ok, %{}}
-      end)
-
       Helper.batch_fetch_instances([
         %{contract_address_hash: token_instance.token_contract_address_hash, token_id: token_instance.token_id}
       ])
@@ -517,10 +513,6 @@ defmodule Indexer.Fetcher.TokenInstance.HelperTest do
           error: "error",
           metadata: nil
         )
-
-      stub(EthereumJSONRPC.Mox, :json_rpc, fn _json, _options ->
-        {:ok, %{}}
-      end)
 
       Helper.batch_fetch_instances([
         %{contract_address_hash: token_instance.token_contract_address_hash, token_id: token_instance.token_id}
@@ -631,10 +623,6 @@ defmodule Indexer.Fetcher.TokenInstance.HelperTest do
           metadata: nil,
           retries_count: 50
         )
-
-      stub(EthereumJSONRPC.Mox, :json_rpc, fn _json, _options ->
-        {:ok, %{}}
-      end)
 
       Helper.batch_fetch_instances([
         %{contract_address_hash: token_instance.token_contract_address_hash, token_id: token_instance.token_id}

@@ -173,8 +173,7 @@ defmodule Indexer.Block.Catchup.MissingRangesCollector do
   end
 
   defp first_block do
-    first_block_from_config =
-      RangesHelper.get_min_block_number_from_range_string(Application.get_env(:indexer, :block_ranges))
+    first_block_from_config = Application.get_env(:indexer, :first_block)
 
     min_missing_block_number =
       "min_missing_block_number"
